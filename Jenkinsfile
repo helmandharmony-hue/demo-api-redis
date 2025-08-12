@@ -10,8 +10,8 @@ node {
   stage('Push') {
     withCredentials([
         usernamePassword(credentialsId: 'docker-credentials',
-                         usernameVariable: 'podfather',
-                         passwordVariable: 'dckr_pat_zd22d9suPKVDdFrXlIdO1nK8GYo')]) {
+                         usernameVariable: 'USERNAME',
+                         passwordVariable: 'PASSWORD')]) {
       sh 'docker login -p "${PASSWORD}" -u "${USERNAME}"'
       sh 'docker image push ${USERNAME}/demo-api:latest'
     }
