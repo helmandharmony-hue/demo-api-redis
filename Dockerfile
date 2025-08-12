@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:latest
+FROM docker/alpine:latest
 
 RUN \
   apk --update add nodejs npm python make g++ \
