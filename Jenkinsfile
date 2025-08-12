@@ -4,14 +4,14 @@ node {
   }
 
   stage('Build') {
-    sh 'docker image build -t controlplane/demo-api:latest .'
+    sh 'docker image build -t helmandharmony-hue/demo-api:latest .'
   }
 
   stage('Push') {
     withCredentials([
         usernamePassword(credentialsId: 'docker-credentials',
-                         usernameVariable: 'USERNAME',
-                         passwordVariable: 'PASSWORD')]) {
+                         usernameVariable: 'podfather',
+                         passwordVariable: 'dckr_pat_zd22d9suPKVDdFrXlIdO1nK8GYo')]) {
       sh 'docker login -p "${PASSWORD}" -u "${USERNAME}"'
       sh 'docker image push ${USERNAME}/demo-api:latest'
     }
