@@ -1,4 +1,4 @@
-FROM docker/alpine:latest
+FROM alpine:latest
 
 RUN \
   apk --update add nodejs npm python make g++ \
